@@ -1118,8 +1118,6 @@
             gap: 20px;
         }
 
-        .analysis-block {}
-
         .analysis-block-title {
             font-size: 12px;
             font-weight: 700;
@@ -1563,115 +1561,67 @@
 
 <body>
 
-    <!-- ════════════════════════════════════════
-     LOGIN SCREEN
-════════════════════════════════════════ -->
     <div id="login-screen">
         <div class="login-bg"></div>
         <div class="login-grid"></div>
         <div class="login-box">
             <div class="login-logo">
-                <span class="wordmark">Koffy's — Análisis de Partidos</span>
-                <span class="tagline">Predicciones deportivas</span>
-                <span class="tagline">for 👉🏼 Richart</span>
+                <span class="wordmark">Koffy's — Análisis</span>
+                <span class="tagline">Predicciones inteligentes</span>
             </div>
             <div class="field-group">
                 <label class="field-label" for="l-user">Usuario</label>
-                <input class="field-input" type="text" id="l-user" placeholder="Ingresa tu usuario" autocomplete="off">
+                <input class="field-input" type="text" id="l-user" placeholder="root">
             </div>
             <div class="field-group">
                 <label class="field-label" for="l-pass">Contraseña</label>
                 <input class="field-input" type="password" id="l-pass" placeholder="••••••••">
             </div>
-            <button class="login-btn" onclick="doLogin()">Ingresar al Sistema</button>
+            <button class="login-btn" onclick="doLogin()">Ingresar</button>
             <div class="login-error" id="login-error"></div>
-            <div class="login-hint">
-                <div class="hint-card">
-                    <div class="hint-role">ROOT</div>
-                    <div class="hint-cred">root / root123</div>
-                </div>
-                <div class="hint-card">
-                    <div class="hint-role">ADMIN</div>
-                    <div class="hint-cred">admin / admin123</div>
-                </div>
-            </div>
         </div>
     </div>
 
-    <!-- ════════════════════════════════════════
-     APP
-════════════════════════════════════════ -->
     <div id="app">
-        <!-- Sidebar overlay (mobile) -->
         <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
-
-        <!-- SIDEBAR -->
         <aside id="sidebar">
             <div class="sidebar-top">
-                <div class="sidebar-logo-mark">S</div>
-                <span class="sidebar-brand">Koffy's — Análisis de Partidos</span>
+                <div class="sidebar-logo-mark">K</div>
+                <span class="sidebar-brand">Koffy's Análisis</span>
             </div>
             <nav class="sidebar-nav">
-                <div class="nav-section-label">Menú</div>
-                <div class="nav-item active" data-view="home" onclick="navigate('home', this)">
-                    <span class="nav-icon">⚽</span> Principal
-                </div>
-                <div class="nav-section-label">Sistema</div>
-                <div class="nav-item" data-view="settings" onclick="navigate('settings', this)">
-                    <span class="nav-icon">⚙️</span> Configuraciones
-                </div>
-                <div class="nav-item" data-view="about" onclick="navigate('about', this)">
-                    <span class="nav-icon">ℹ️</span> Acerca de
-                </div>
+                <div class="nav-item active" data-view="home" onclick="navigate('home', this)">Principal</div>
+                <div class="nav-item" data-view="settings" onclick="navigate('settings', this)">Ajustes</div>
+                <div class="nav-item" data-view="about" onclick="navigate('about', this)">Acerca de</div>
             </nav>
             <div class="sidebar-bottom">
                 <div class="user-card">
                     <div class="user-avatar" id="user-avatar">R</div>
                     <div class="user-info">
                         <div class="user-name" id="user-display-name">Root</div>
-                        <div class="user-role" id="user-role-display">ROOT</div>
+                        <div class="user-role">ROOT</div>
                     </div>
-                    <button class="logout-btn" title="Cerrar sesión" onclick="doLogout()">⏏</button>
                 </div>
             </div>
         </aside>
 
-        <!-- MAIN -->
         <div id="main">
-            <!-- TOPBAR -->
             <header id="topbar">
-                <div class="topbar-left">
-                    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-                    <span class="page-title" id="page-title">Dashboard</span>
-                </div>
-                <div class="topbar-right">
-                    <span class="topbar-badge" id="topbar-role">ROOT</span>
-                </div>
+                <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+                <span class="page-title" id="page-title">Dashboard</span>
             </header>
 
-            <!-- CONTENT -->
             <div id="content">
-
-                <!-- ══ HOME VIEW ══ -->
                 <div id="view-home" class="view active">
                     <div class="dashboard-hero">
-                        <div class="hero-subtitle">⚡ Análisis Predictivo con IA</div>
-                        <div class="hero-title">Generador de Análisis<br>de Partidos</div>
-                        <div class="hero-desc">Selecciona el campeonato y los equipos para obtener un análisis
-                            estadístico completo con predicciones potenciadas por IA.</div>
-                    </div>
-
-                    <!-- SELECTORS -->
-                    <div class="section-header">
-                        <span class="section-label">Configurar Partido</span>
-                        <div class="section-line"></div>
+                        <div class="hero-title">Análisis de Partidos</div>
+                        <div class="hero-desc">Selecciona el campeonato y los equipos.</div>
                     </div>
 
                     <div class="selector-grid">
                         <div class="selector-wrap">
-                            <span class="selector-label">🏆 Campeonato</span>
                             <select class="selector-select" id="sel-champ" onchange="onChampChange()">
-                                <option value="">— Seleccionar Campeonato —</option>
+                                <option value="">— Campeonato —</option>
                                 <option value="liga-boliviana">Liga Boliviana</option>
                                 <option value="eliminatorias">Eliminatorias CONMEBOL</option>
                                 <option value="champions">Champions League</option>
@@ -1681,750 +1631,206 @@
                             </select>
                         </div>
                         <div class="selector-wrap">
-                            <span class="selector-label">🟢 Equipo A (Local)</span>
-                            <select class="selector-select" id="sel-team-a" disabled onchange="updateVsPreview()">
-                                <option value="">— Primero selecciona campeonato —</option>
-                            </select>
+                            <select class="selector-select" id="sel-team-a" disabled onchange="updateVsPreview()"></select>
                         </div>
                         <div class="selector-wrap">
-                            <span class="selector-label">🔵 Equipo B (Visitante)</span>
-                            <select class="selector-select" id="sel-team-b" disabled onchange="updateVsPreview()">
-                                <option value="">— Primero selecciona campeonato —</option>
-                            </select>
+                            <select class="selector-select" id="sel-team-b" disabled onchange="updateVsPreview()"></select>
                         </div>
                     </div>
 
-                    <!-- VS PREVIEW -->
-                    <div class="vs-preview" id="vs-preview">
-                        <span class="vs-placeholder">Selecciona un campeonato y ambos equipos para continuar</span>
-                    </div>
+                    <div class="vs-preview" id="vs-preview"></div>
 
-                    <!-- GENERATE BUTTON -->
                     <button class="generate-btn" id="generate-btn" disabled onclick="generateAnalysis()">
-                        <span class="btn-icon">🧠</span>
-                        <span id="btn-text">Generar Análisis Inteligente</span>
+                        <span id="btn-text">Generar Análisis Real</span>
                         <div class="spinner" id="btn-spinner"></div>
                     </button>
 
-                    <!-- LOADING STATE -->
                     <div class="loading-state" id="loading-state">
                         <div class="loading-ring"></div>
-                        <div class="loading-text">Consultando IA<span class="loading-dots"></span></div>
-                        <div style="font-size:12px;color:var(--gray);font-family:var(--font-mono)">Procesando datos
-                            estadísticos</div>
+                        <div class="loading-text">Conectando con n8n...</div>
                     </div>
 
-                    <!-- RESULTS -->
                     <div id="results-section">
                         <div class="results-header">
-                            <div>
-                                <div class="results-title">Análisis Completo</div>
-                                <div class="results-matchup" id="results-matchup-label"></div>
-                            </div>
+                            <div class="results-title" id="results-matchup-label"></div>
                         </div>
 
-                        <!-- PREDICTION BOX -->
                         <div class="prediction-box">
                             <div>
                                 <div class="pred-label">🔮 Resultado Probable</div>
                                 <div class="pred-score" id="pred-score">—</div>
                             </div>
-                            <div class="pred-note" id="pred-note">—</div>
+                            <div class="pred-note" id="pred-note"></div>
                         </div>
 
-                        <!-- CHART + PROBS -->
                         <div class="results-grid">
                             <div class="chart-card">
-                                <div class="card-title">📊 Distribución de Probabilidades</div>
-                                <div class="chart-container">
-                                    <canvas id="prob-chart"></canvas>
-                                </div>
+                                <div class="chart-container"><canvas id="prob-chart"></canvas></div>
                             </div>
                             <div class="chart-card">
-                                <div class="card-title">🎯 Probabilidad de Victoria</div>
                                 <div class="prob-bars">
-                                    <div class="prob-row">
-                                        <span class="prob-name" id="prob-name-a" style="color:var(--green)">Equipo
-                                            A</span>
-                                        <div class="prob-track">
-                                            <div class="prob-fill a" id="prob-fill-a"></div>
-                                        </div>
-                                        <span class="prob-pct" id="prob-pct-a">0%</span>
-                                    </div>
-                                    <div class="prob-row">
-                                        <span class="prob-name" style="color:var(--gray)">Empate</span>
-                                        <div class="prob-track">
-                                            <div class="prob-fill draw" id="prob-fill-draw"></div>
-                                        </div>
-                                        <span class="prob-pct" id="prob-pct-draw">0%</span>
-                                    </div>
-                                    <div class="prob-row">
-                                        <span class="prob-name" id="prob-name-b" style="color:#4da6ff">Equipo B</span>
-                                        <div class="prob-track">
-                                            <div class="prob-fill b" id="prob-fill-b"></div>
-                                        </div>
-                                        <span class="prob-pct" id="prob-pct-b">0%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- MATCH HISTORY -->
-                            <div class="matches-card">
-                                <div class="card-title">📋 Últimos 5 Partidos</div>
-                                <div class="teams-history">
-                                    <div>
-                                        <div class="team-history-title">
-                                            <div class="team-dot" style="background:var(--green)"></div>
-                                            <span id="hist-title-a">Equipo A</span>
-                                        </div>
-                                        <div class="match-list" id="match-list-a"></div>
-                                        <div class="stats-strip" id="stats-strip-a"></div>
-                                    </div>
-                                    <div>
-                                        <div class="team-history-title">
-                                            <div class="team-dot" style="background:#4da6ff"></div>
-                                            <span id="hist-title-b">Equipo B</span>
-                                        </div>
-                                        <div class="match-list" id="match-list-b"></div>
-                                        <div class="stats-strip" id="stats-strip-b"></div>
-                                    </div>
+                                    <div class="prob-row"><span id="prob-name-a">A</span><div class="prob-track"><div class="prob-fill a" id="prob-fill-a"></div></div><span id="prob-pct-a">0%</span></div>
+                                    <div class="prob-row"><span>Empate</span><div class="prob-track"><div class="prob-fill draw" id="prob-fill-draw"></div></div><span id="prob-pct-draw">0%</span></div>
+                                    <div class="prob-row"><span id="prob-name-b">B</span><div class="prob-track"><div class="prob-fill b" id="prob-fill-b"></div></div><span id="prob-pct-b">0%</span></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- ANALYSIS TEXT -->
                         <div class="analysis-card">
-                            <div class="card-title">🧠 Análisis Técnico Completo</div>
                             <div class="analysis-sections">
-                                <div class="analysis-block">
-                                    <div class="analysis-block-title">Resumen General <div class="line"></div>
-                                    </div>
-                                    <div class="analysis-text" id="analysis-summary"></div>
-                                </div>
-                                <div class="analysis-block">
-                                    <div class="analysis-block-title">Fortalezas y Debilidades <div class="line"></div>
-                                    </div>
-                                    <div class="tags" id="analysis-tags"></div>
-                                </div>
-                                <div class="analysis-block">
-                                    <div class="analysis-block-title">Escenario Esperado <div class="line"></div>
-                                    </div>
-                                    <div class="scenario-steps" id="analysis-scenario"></div>
-                                </div>
-                                <div class="analysis-block">
-                                    <div class="analysis-block-title">Conclusión Técnica <div class="line"></div>
-                                    </div>
-                                    <div class="analysis-text" id="analysis-conclusion"></div>
-                                </div>
+                                <div id="analysis-summary" class="analysis-text"></div>
+                                <div id="analysis-tags" class="tags"></div>
+                                <div id="analysis-scenario" class="scenario-steps"></div>
+                                <div id="analysis-conclusion" class="analysis-text"></div>
                             </div>
                         </div>
-                    </div><!-- /results-section -->
-                </div><!-- /view-home -->
+                    </div>
+                </div>
 
-                <!-- ══ SETTINGS VIEW ══ -->
                 <div id="view-settings" class="view">
-                    <div class="settings-section">
-                        <div class="settings-section-title">Conexión con Backend</div>
-                        <div class="settings-card">
-                            <div class="settings-row">
-                                <div class="settings-row-info">
-                                    <div class="settings-row-title">URL del Webhook (n8n)</div>
-                                    <div class="settings-row-desc">Endpoint POST donde se envían los datos del partido
-                                    </div>
-                                </div>
-                                <input class="webhook-input" type="url" id="webhook-url"
-                                    placeholder="https://tu-n8n.com/webhook/..." value="">
-                            </div>
-                            <div class="settings-row">
-                                <div class="settings-row-info">
-                                    <div class="settings-row-title">Guardar configuración</div>
-                                    <div class="settings-row-desc">Los cambios se aplican inmediatamente</div>
-                                </div>
-                                <button class="save-btn" onclick="saveSettings()">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="settings-section">
-                        <div class="settings-section-title">Preferencias de Interfaz</div>
-                        <div class="settings-card">
-                            <div class="settings-row">
-                                <div class="settings-row-info">
-                                    <div class="settings-row-title">Modo de demostración</div>
-                                    <div class="settings-row-desc">Usar datos de ejemplo cuando el webhook no está
-                                        configurado</div>
-                                </div>
-                                <label class="toggle">
-                                    <input type="checkbox" id="demo-mode" checked>
-                                    <div class="toggle-track"></div>
-                                </label>
-                            </div>
-                            <div class="settings-row">
-                                <div class="settings-row-info">
-                                    <div class="settings-row-title">Animaciones</div>
-                                    <div class="settings-row-desc">Efectos de transición en el dashboard</div>
-                                </div>
-                                <label class="toggle">
-                                    <input type="checkbox" id="animations-toggle" checked>
-                                    <div class="toggle-track"></div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="settings-section" id="root-only-section">
-                        <div class="settings-section-title">Administración (Solo Root)</div>
-                        <div class="settings-card">
-                            <div class="settings-row">
-                                <div class="settings-row-info">
-                                    <div class="settings-row-title">Credenciales Admin</div>
-                                    <div class="settings-row-desc">Usuario: admin / Contraseña: admin123</div>
-                                </div>
-                                <span style="font-family:var(--font-mono);font-size:11px;color:var(--gray)">Solo
-                                    lectura</span>
-                            </div>
+                    <div class="settings-card">
+                        <div class="settings-row">
+                            <input class="webhook-input" type="url" id="webhook-url" value="https://koffy.app.n8n.cloud/webhook-test/b45ddced-a589-45b2-b58c-bdfb79da4b31">
+                            <button class="save-btn" onclick="saveSettings()">Guardar Webhook</button>
                         </div>
                     </div>
                 </div>
-
-                <!-- ══ ABOUT VIEW ══ -->
-                <div id="view-about" class="view">
-                    <div class="about-hero">
-                        <span class="about-logo">Koffy's</span>
-                        <div class="about-version">v3.5.0 — Sistema de analisis deportivo</div>
-                        <div class="about-desc">Sistema de análisis predictivo de partidos de fútbol. Combina datos
-                            estadísticos con inteligencia artificial vía n8n para generar análisis completos en tiempo
-                            real.</div>
-                    </div>
-                    <div class="about-grid">
-                        <div class="about-stat-card">
-                            <div class="about-stat-val">6</div>
-                            <div class="about-stat-lbl">Campeonatos disponibles</div>
-                        </div>
-                        <div class="about-stat-card">
-                            <div class="about-stat-val">50+</div>
-                            <div class="about-stat-lbl">Equipos en base de datos</div>
-                        </div>
-                        <div class="about-stat-card">
-                            <div class="about-stat-val">n8n</div>
-                            <div class="about-stat-lbl">Backend de análisis IA</div>
-                        </div>
-                        <div class="about-stat-card">
-                            <div class="about-stat-val">2</div>
-                            <div class="about-stat-lbl">Roles de usuario</div>
-                        </div>
-                    </div>
-                    <div style="text-align:center;margin-bottom:24px;">
-                        <div class="section-label" style="margin-bottom:14px">Stack Tecnológico</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript ES6+</span>
-                            <span class="tech-tag">Chart.js 4</span>
-                            <span class="tech-tag">n8n Webhook</span>
-                            <span class="tech-tag">Firebase (próximo)</span>
-                            <span class="tech-tag">Dark Mode</span>
-                            <span class="tech-tag">Responsive SPA</span>
-                        </div>
-                    </div>
-                    <div style="text-align:center;">
-                        <div
-                            style="font-family:var(--font-mono);font-size:11px;color:var(--gray);letter-spacing:0.1em;">
-                            Desarrollado con Systemas Koffy's · Tarija-Bolivia 2026
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /content -->
-        </div><!-- /main -->
-    </div><!-- /app -->
+            </div>
+        </div>
+    </div>
 
     <div id="toast"></div>
 
-    <!-- ════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════ -->
     <script>
-        /* ─────────────────────────────────────
-           AUTH
-        ───────────────────────────────────── */
-        const USERS = {
-            root: { pass: 'root123', role: 'ROOT', display: 'Root' },
-            admin: { pass: 'admin123', role: 'ADMIN', display: 'Admin' },
-        };
-
-        let currentUser = null;
-        let n8nWebhookURL = '';
+        const USERS = { root: { pass: 'root123', role: 'ROOT', display: 'Root' } };
+        let n8nWebhookURL = "https://koffy.app.n8n.cloud/webhook-test/b45ddced-a589-45b2-b58c-bdfb79da4b31";
         let probChartInstance = null;
 
         function doLogin() {
-            const u = document.getElementById('l-user').value.trim().toLowerCase();
+            const u = document.getElementById('l-user').value.trim();
             const p = document.getElementById('l-pass').value;
-            const errEl = document.getElementById('login-error');
-
-            if (!USERS[u] || USERS[u].pass !== p) {
-                errEl.textContent = '⚠ Usuario o contraseña incorrectos';
-                document.getElementById('l-pass').value = '';
-                setTimeout(() => errEl.textContent = '', 3000);
-                return;
+            if (USERS[u] && USERS[u].pass === p) {
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('app').style.display = 'flex';
+                setTimeout(() => document.getElementById('app').classList.add('visible'), 50);
+            } else {
+                showToast("Credenciales incorrectas", "error");
             }
-
-            currentUser = { username: u, ...USERS[u] };
-            errEl.textContent = '';
-
-            // Update UI
-            document.getElementById('user-display-name').textContent = currentUser.display;
-            document.getElementById('user-role-display').textContent = currentUser.role;
-            document.getElementById('user-avatar').textContent = currentUser.display[0];
-            const roleBadge = document.getElementById('topbar-role');
-            roleBadge.textContent = currentUser.role;
-            roleBadge.className = 'topbar-badge ' + currentUser.role.toLowerCase();
-
-            // Hide root-only section for admin
-            if (currentUser.role !== 'ROOT') {
-                const rootSection = document.getElementById('root-only-section');
-                if (rootSection) rootSection.style.display = 'none';
-            }
-
-            document.getElementById('login-screen').classList.add('hidden');
-            const app = document.getElementById('app');
-            app.style.display = 'flex';
-            setTimeout(() => app.classList.add('visible'), 50);
         }
-
-        function doLogout() {
-            currentUser = null;
-            document.getElementById('login-screen').classList.remove('hidden');
-            document.getElementById('app').classList.remove('visible');
-            document.getElementById('l-user').value = '';
-            document.getElementById('l-pass').value = '';
-            hideResults();
-            showToast('Sesión cerrada', 'info');
-        }
-
-        // Enter key on login
-        document.getElementById('l-pass').addEventListener('keydown', e => {
-            if (e.key === 'Enter') doLogin();
-        });
-        document.getElementById('l-user').addEventListener('keydown', e => {
-            if (e.key === 'Enter') document.getElementById('l-pass').focus();
-        });
-
-        /* ─────────────────────────────────────
-           NAVIGATION
-        ───────────────────────────────────── */
-        const PAGE_TITLES = { home: 'Dashboard', settings: 'Configuraciones', about: 'Acerca de' };
 
         function navigate(view, el) {
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             document.getElementById('view-' + view).classList.add('active');
-            if (el) el.classList.add('active');
-            document.getElementById('page-title').textContent = PAGE_TITLES[view] || view;
-            // Close sidebar on mobile
-            if (window.innerWidth <= 768) closeSidebar();
+            el.classList.add('active');
         }
 
         function toggleSidebar() {
-            const sb = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            if (window.innerWidth <= 768) {
-                sb.classList.toggle('open');
-                overlay.classList.toggle('visible');
-            } else {
-                const main = document.getElementById('main');
-                sb.classList.toggle('collapsed');
-                main.classList.toggle('full-width');
-            }
+            document.getElementById('sidebar').classList.toggle('collapsed');
+            document.getElementById('main').classList.toggle('full-width');
         }
 
-        function closeSidebar() {
-            document.getElementById('sidebar').classList.remove('open');
-            document.getElementById('sidebar-overlay').classList.remove('visible');
-        }
-
-        /* ─────────────────────────────────────
-           TEAM DATA
-        ───────────────────────────────────── */
         const TEAMS_DB = {
-            'liga-boliviana': [
-                'Real Tomayapo', 'Bolívar', 'The Strongest', 'Wilstermann', 'Blooming',
-                'Nacional Potosí', 'Oriente Petrolero', 'GV San José', 'Always Ready',
-                'Independiente Petrolero', 'Real Oruro', 'Aurora'
-            ],
-            'eliminatorias': [
-                'Bolivia', 'Argentina', 'Brasil', 'Chile', 'Colombia', 'Ecuador',
-                'Paraguay', 'Perú', 'Uruguay', 'Venezuela'
-            ],
-            'champions': [
-                'Real Madrid', 'Barcelona', 'Manchester City', 'Bayern Múnich', 'PSG',
-                'Liverpool', 'Chelsea', 'Juventus', 'Atlético de Madrid', 'Dortmund',
-                'Ajax', 'Inter Milán'
-            ],
-            'copa-libertadores': [
-                'Flamengo', 'River Plate', 'Boca Juniors', 'Palmeiras', 'Nacional',
-                'Peñarol', 'Estudiantes', 'Athletico Paranaense', 'Bolívar', 'LDU Quito'
-            ],
-            'laliga': [
-                'Real Madrid', 'Barcelona', 'Atlético de Madrid', 'Sevilla', 'Real Betis',
-                'Villarreal', 'Real Sociedad', 'Valencia', 'Osasuna', 'Athletic Club'
-            ],
-            'premier': [
-                'Manchester City', 'Arsenal', 'Liverpool', 'Chelsea', 'Manchester United',
-                'Tottenham', 'Newcastle', 'Aston Villa', 'Brighton', 'West Ham'
-            ],
+            'liga-boliviana': ['Real Tomayapo', 'Bolívar', 'The Strongest', 'Wilstermann', 'Blooming', 'Oriente Petrolero'],
+            'eliminatorias': ['Bolivia', 'Argentina', 'Brasil', 'Uruguay', 'Colombia', 'Ecuador'],
+            'champions': ['Real Madrid', 'Man. City', 'Bayern', 'PSG', 'Barcelona', 'Arsenal'],
+            'copa-libertadores': ['Flamengo', 'River Plate', 'Palmeiras', 'Boca Juniors'],
+            'laliga': ['Real Madrid', 'Barcelona', 'Atlético'],
+            'premier': ['Man. City', 'Arsenal', 'Liverpool']
         };
 
-        const HISTORY_DB = {
-            'Real Tomayapo': {
-                matches: [
-                    { rival: 'ABB', score: '2–1', result: 'W' },
-                    { rival: 'Independiente', score: '1–2', result: 'L' },
-                    { rival: 'Real Oruro', score: '2–5', result: 'L' },
-                    { rival: 'Oriente Pet.', score: '1–0', result: 'W' },
-                    { rival: 'GV San José', score: '1–3', result: 'L' },
-                ],
-                wins: 2, gf: 8, gc: 9,
-                strength: 'Contragolpes y localía en Tarija',
-                weakness: 'Inconsistencia defensiva',
-                status: '🔄 Irregular',
-            },
-            'Bolívar': {
-                matches: [
-                    { rival: 'The Strongest', score: '3–2', result: 'W' },
-                    { rival: 'Nacional Potosí', score: '1–4', result: 'L' },
-                    { rival: 'Blooming', score: '3–1', result: 'W' },
-                    { rival: 'R. Tomayapo', score: '5–0', result: 'W' },
-                    { rival: 'Wilstermann', score: '1–1', result: 'D' },
-                ],
-                wins: 3, gf: 12, gc: 8,
-                strength: 'Ataque potente y jerarquía',
-                weakness: 'Vulnerabilidad visitante reciente',
-                status: '⬆️ Bueno',
-            },
-        };
-
-        function getDefaultHistory(name) {
-            const results = ['W', 'L', 'D', 'W', 'W'];
-            const rivals = ['Rival A', 'Rival B', 'Rival C', 'Rival D', 'Rival E'];
-            const scores = ['2–1', '0–1', '1–1', '3–0', '2–0'];
-            return {
-                matches: results.map((r, i) => ({ rival: rivals[i], score: scores[i], result: r })),
-                wins: 3, gf: 8, gc: 4,
-                strength: 'Buen juego colectivo', weakness: 'Vulnerable a balón parado',
-                status: '⬆️ Bueno',
-            };
-        }
-
-        /* ─────────────────────────────────────
-           SELECTORS
-        ───────────────────────────────────── */
         function onChampChange() {
-            const champ = document.getElementById('sel-champ').value;
-            const selA = document.getElementById('sel-team-a');
-            const selB = document.getElementById('sel-team-b');
-
-            if (!champ) {
-                selA.disabled = true; selB.disabled = true;
-                selA.innerHTML = '<option value="">— Primero selecciona campeonato —</option>';
-                selB.innerHTML = '<option value="">— Primero selecciona campeonato —</option>';
-                updateVsPreview(); return;
-            }
-
-            const teams = TEAMS_DB[champ] || [];
-            const opts = '<option value="">— Seleccionar equipo —</option>' +
-                teams.map(t => `<option value="${t}">${t}</option>`).join('');
-            selA.innerHTML = opts; selA.disabled = false;
-            selB.innerHTML = opts; selB.disabled = false;
-            updateVsPreview();
+            const c = document.getElementById('sel-champ').value;
+            const sa = document.getElementById('sel-team-a');
+            const sb = document.getElementById('sel-team-b');
+            if (!c) { sa.disabled = sb.disabled = true; return; }
+            const opts = '<option value="">— Equipo —</option>' + TEAMS_DB[c].map(t => `<option value="${t}">${t}</option>`).join('');
+            sa.innerHTML = sb.innerHTML = opts;
+            sa.disabled = sb.disabled = false;
         }
 
         function updateVsPreview() {
             const a = document.getElementById('sel-team-a').value;
             const b = document.getElementById('sel-team-b').value;
-            const preview = document.getElementById('vs-preview');
             const btn = document.getElementById('generate-btn');
-
-            if (a && b && a !== b) {
-                preview.innerHTML = `
-      <span class="vs-team a">${a}</span>
-      <div class="vs-divider">VS</div>
-      <span class="vs-team b">${b}</span>
-    `;
-                btn.disabled = false;
-            } else if (a && b && a === b) {
-                preview.innerHTML = `<span class="vs-placeholder" style="color:var(--red)">⚠ Los equipos no pueden ser iguales</span>`;
-                btn.disabled = true;
-            } else {
-                preview.innerHTML = `<span class="vs-placeholder">Selecciona ambos equipos para continuar</span>`;
-                btn.disabled = true;
-            }
+            document.getElementById('vs-preview').innerHTML = a && b ? `${a} VS ${b}` : "";
+            btn.disabled = !(a && b && a !== b);
         }
 
-        /* ─────────────────────────────────────
-           GENERATE ANALYSIS
-        ───────────────────────────────────── */
         async function generateAnalysis() {
-            const champ = document.getElementById('sel-champ');
-            const teamA = document.getElementById('sel-team-a').value;
-            const teamB = document.getElementById('sel-team-b').value;
-            const champName = champ.options[champ.selectedIndex].text;
-            const webhookURL = document.getElementById('webhook-url')?.value || n8nWebhookURL;
-            const demoMode = document.getElementById('demo-mode')?.checked !== false;
+            const payload = {
+                equipo_a: document.getElementById('sel-team-a').value,
+                equipo_b: document.getElementById('sel-team-b').value,
+                campeonato: document.getElementById('sel-champ').value
+            };
 
             setLoading(true);
-            hideResults();
-
-            const payload = {
-                campeonato: champName,
-                campeonato_id: champ.value,
-                equipo_a: teamA,
-                equipo_b: teamB,
-                timestamp: new Date().toISOString(),
-            };
-
-            let data = null;
-
-            if (webhookURL && webhookURL.startsWith('http')) {
-                try {
-                    const res = await fetch(webhookURL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload),
-                    });
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    data = await res.json();
-                    showToast('Análisis recibido de n8n ✓', 'success');
-                } catch (err) {
-                    showToast(`Error webhook: ${err.message}`, 'error');
-                    if (!demoMode) { setLoading(false); return; }
-                    data = buildDemoData(teamA, teamB);
-                }
-            } else {
-                // Demo mode
-                await new Promise(r => setTimeout(r, 1800)); // Simulate loading
-                data = buildDemoData(teamA, teamB);
-                if (demoMode) showToast('Modo demo — configura webhook en Ajustes', 'info');
+            try {
+                const res = await fetch(n8nWebhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                renderResults(Array.isArray(data) ? data[0] : data);
+                showToast("Análisis recibido", "success");
+            } catch (e) {
+                showToast("Error conectando a n8n", "error");
+            } finally {
+                setLoading(false);
             }
-
-            setLoading(false);
-            renderResults(data, teamA, teamB);
         }
 
-        function buildDemoData(teamA, teamB) {
-            const histA = HISTORY_DB[teamA] || getDefaultHistory(teamA);
-            const histB = HISTORY_DB[teamB] || getDefaultHistory(teamB);
-
-            // Simple algo: more wins = higher probability
-            const totalA = histA.wins * 10 + (histA.gf - histA.gc);
-            const totalB = histB.wins * 10 + (histB.gf - histB.gc);
-            const total = Math.abs(totalA) + Math.abs(totalB) + 20;
-            let probA = Math.round(25 + (totalA / total) * 30);
-            let probB = Math.round(25 + (totalB / total) * 30);
-            let probD = 100 - probA - probB;
-            if (probD < 10) { probD = 10; probB = 100 - probA - probD; }
-
-            const winner = probA > probB ? teamA : teamB;
-            const loser = probA > probB ? teamB : teamA;
-            const winnerScore = probA > probB ? probA : probB;
-
-            return {
-                equipo_a: { nombre: teamA, historia: histA },
-                equipo_b: { nombre: teamB, historia: histB },
-                probabilidades: { victoria_a: probA, empate: probD, victoria_b: probB },
-                prediccion: {
-                    resultado: probA > probB ? '1 – 2' : '2 – 1',
-                    nota: `${winner} tiene ventaja por mayor solidez. ${loser} puede complicar con buen inicio.`
-                },
-                analisis: {
-                    resumen: `El partido entre <strong>${teamA}</strong> y <strong>${teamB}</strong> presenta un claro favorito según la forma reciente. ${winner} llega en mejor momento con ${winnerScore}% de probabilidad de llevarse los 3 puntos. Sin embargo, el factor localía y la motivación pueden equilibrar las fuerzas.`,
-                    fortalezas: [
-                        { tipo: 'pos', texto: `✔ ${teamA}: ${histA.strength}` },
-                        { tipo: 'neg', texto: `✘ ${teamA}: ${histA.weakness}` },
-                        { tipo: 'pos', texto: `✔ ${teamB}: ${histB.strength}` },
-                        { tipo: 'neg', texto: `✘ ${teamB}: ${histB.weakness}` },
-                        { tipo: 'neu', texto: `★ ${histA.status} vs ${histB.status}` },
-                        { tipo: 'info', texto: 'ℹ Factor campo podría ser determinante' },
-                    ],
-                    escenario: [
-                        `${teamA} sale intenso aprovechando su localía y presiona en los primeros minutos.`,
-                        `${teamB} resiste y busca controlar con posesión y transiciones rápidas.`,
-                        `En el segundo tiempo, el equipo con mayor jerarquía individual aprovecha los espacios.`,
-                    ],
-                    conclusion: `Si <strong>${teamA}</strong> marca primero, puede sostener el resultado. Si <strong>${teamB}</strong> anota temprano, domina con comodidad. La diferencia de plantel favorece a <strong>${winner}</strong> como resultado más probable.`,
-                },
-            };
-        }
-
-        /* ─────────────────────────────────────
-           RENDER RESULTS
-        ───────────────────────────────────── */
-        function renderResults(data, teamA, teamB) {
-            const probA = data.probabilidades.victoria_a;
-            const probD = data.probabilidades.empate;
-            const probB = data.probabilidades.victoria_b;
-
-            // Label
-            document.getElementById('results-matchup-label').textContent =
-                `${teamA} vs ${teamB} · ${document.getElementById('sel-champ').options[document.getElementById('sel-champ').selectedIndex].text}`;
-
-            // Prediction
-            document.getElementById('pred-score').textContent = data.prediccion.resultado;
-            document.getElementById('pred-note').textContent = data.prediccion.nota;
-
-            // Prob bars
-            document.getElementById('prob-name-a').textContent = teamA;
-            document.getElementById('prob-name-b').textContent = teamB;
-            document.getElementById('prob-pct-a').textContent = probA + '%';
-            document.getElementById('prob-pct-draw').textContent = probD + '%';
-            document.getElementById('prob-pct-b').textContent = probB + '%';
-
-            setTimeout(() => {
-                document.getElementById('prob-fill-a').style.width = probA + '%';
-                document.getElementById('prob-fill-draw').style.width = probD + '%';
-                document.getElementById('prob-fill-b').style.width = probB + '%';
-            }, 100);
-
-            // Chart
-            renderChart(teamA, teamB, probA, probD, probB);
-
-            // Match history
-            renderHistory('a', teamA, data.equipo_a.historia);
-            renderHistory('b', teamB, data.equipo_b.historia);
-
-            // Analysis text
-            document.getElementById('analysis-summary').innerHTML = data.analisis.resumen;
-
-            const tagsEl = document.getElementById('analysis-tags');
-            tagsEl.innerHTML = '';
-            data.analisis.fortalezas.forEach(f => {
-                const span = document.createElement('span');
-                span.className = `tag ${f.tipo}`;
-                span.textContent = f.texto;
-                tagsEl.appendChild(span);
-            });
-
-            const scenarioEl = document.getElementById('analysis-scenario');
-            scenarioEl.innerHTML = '';
-            data.analisis.escenario.forEach((s, i) => {
-                scenarioEl.innerHTML += `<div class="step"><span class="step-num">0${i + 1}</span><span class="step-text">${s}</span></div>`;
-            });
-
-            document.getElementById('analysis-conclusion').innerHTML = data.analisis.conclusion;
-
-            // Show
+        function renderResults(d) {
             document.getElementById('results-section').classList.add('visible');
-            setTimeout(() => {
-                document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
+            document.getElementById('pred-score').textContent = d.prediccion.resultado;
+            document.getElementById('pred-note').textContent = d.prediccion.nota;
+            
+            document.getElementById('prob-pct-a').textContent = d.probabilidades.victoria_a + "%";
+            document.getElementById('prob-pct-draw').textContent = d.probabilidades.empate + "%";
+            document.getElementById('prob-pct-b').textContent = d.probabilidades.victoria_b + "%";
+            
+            document.getElementById('prob-fill-a').style.width = d.probabilidades.victoria_a + "%";
+            document.getElementById('prob-fill-draw').style.width = d.probabilidades.empate + "%";
+            document.getElementById('prob-fill-b').style.width = d.probabilidades.victoria_b + "%";
+
+            renderChart(d.probabilidades);
         }
 
-        function renderHistory(side, name, hist) {
-            document.getElementById(`hist-title-${side}`).textContent = name;
-            const listEl = document.getElementById(`match-list-${side}`);
-            listEl.innerHTML = '';
-            hist.matches.forEach(m => {
-                listEl.innerHTML += `
-      <div class="match-item">
-        <div class="match-result-dot ${m.result}">${m.result}</div>
-        <span class="match-rival">${m.rival}</span>
-        <span class="match-score">${m.score}</span>
-      </div>`;
-            });
-            const losses = hist.matches.filter(m => m.result === 'L').length;
-            const draws = hist.matches.filter(m => m.result === 'D').length;
-            document.getElementById(`stats-strip-${side}`).innerHTML = `
-    <div class="stat-cell"><span class="stat-val" style="color:var(--green)">${hist.wins}</span><div class="stat-lbl">Victorias</div></div>
-    <div class="stat-cell"><span class="stat-val" style="color:var(--gold)">${hist.gf}</span><div class="stat-lbl">G. Favor</div></div>
-    <div class="stat-cell"><span class="stat-val" style="color:var(--red)">${hist.gc}</span><div class="stat-lbl">G. Contra</div></div>
-  `;
-        }
-
-        function renderChart(nameA, nameB, pA, pD, pB) {
-            if (probChartInstance) { probChartInstance.destroy(); probChartInstance = null; }
+        function renderChart(p) {
+            if (probChartInstance) probChartInstance.destroy();
             const ctx = document.getElementById('prob-chart').getContext('2d');
             probChartInstance = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: [nameA, 'Empate', nameB],
+                    labels: ['Local', 'Empate', 'Visitante'],
                     datasets: [{
-                        data: [pA, pD, pB],
-                        backgroundColor: ['rgba(0,230,118,0.85)', 'rgba(96,112,128,0.85)', 'rgba(77,166,255,0.85)'],
-                        borderColor: ['#060a0f', '#060a0f', '#060a0f'],
-                        borderWidth: 3,
-                        hoverOffset: 6,
+                        data: [p.victoria_a, p.empate, p.victoria_b],
+                        backgroundColor: ['#00e676', '#607080', '#00d4ff']
                     }]
                 },
-                options: {
-                    cutout: '68%',
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#8ba0b4', font: { family: 'JetBrains Mono', size: 11 },
-                                padding: 14, boxWidth: 12, boxHeight: 12,
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: '#141f2b',
-                            borderColor: '#1e2f42',
-                            borderWidth: 1,
-                            titleColor: '#e4edf5',
-                            bodyColor: '#f5b800',
-                            titleFont: { family: 'JetBrains Mono', size: 11 },
-                            bodyFont: { family: 'JetBrains Mono', size: 13 },
-                            callbacks: { label: ctx => ` ${ctx.parsed}%` }
-                        }
-                    },
-                    animation: { duration: 1000, easing: 'easeInOutQuart' },
-                }
+                options: { responsive: true, maintainAspectRatio: false }
             });
         }
 
-        /* ─────────────────────────────────────
-           UI HELPERS
-        ───────────────────────────────────── */
         function setLoading(on) {
-            const loadEl = document.getElementById('loading-state');
-            const spinner = document.getElementById('btn-spinner');
-            const btnText = document.getElementById('btn-text');
-            const btn = document.getElementById('generate-btn');
-
-            if (on) {
-                loadEl.classList.add('visible');
-                spinner.classList.add('visible');
-                btnText.textContent = 'Analizando...';
-                btn.disabled = true;
-            } else {
-                loadEl.classList.remove('visible');
-                spinner.classList.remove('visible');
-                btnText.textContent = 'Generar Análisis Inteligente';
-                btn.disabled = false;
-            }
-        }
-
-        function hideResults() {
-            const rs = document.getElementById('results-section');
-            rs.classList.remove('visible');
+            document.getElementById('loading-state').style.display = on ? 'flex' : 'none';
+            document.getElementById('btn-spinner').style.display = on ? 'block' : 'none';
         }
 
         function saveSettings() {
-            const url = document.getElementById('webhook-url').value;
-            n8nWebhookURL = url;
-            showToast('Configuración guardada ✓', 'success');
+            n8nWebhookURL = document.getElementById('webhook-url').value;
+            showToast("Webhook guardado", "success");
         }
 
-        let toastTimer;
-        function showToast(msg, type = 'info') {
-            const t = document.getElementById('toast');
-            t.textContent = msg;
-            t.className = `show ${type}`;
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => { t.className = ''; }, 3200);
+        function showToast(m, t) {
+            const el = document.getElementById('toast');
+            el.textContent = m;
+            el.className = `show ${t}`;
+            setTimeout(() => el.className = "", 3000);
         }
 
-        // Init: hide app until login
         document.getElementById('app').style.display = 'none';
     </script>
 </body>
-
 </html>
